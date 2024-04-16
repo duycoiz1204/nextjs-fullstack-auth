@@ -36,7 +36,7 @@ export default function SignupPage({}: Props) {
     }
   }, [user]);
 
-  const onSignupClick = async (e: FormEvent) => {
+  const handleSignupClick = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
@@ -96,7 +96,7 @@ export default function SignupPage({}: Props) {
         <div className="flex flex-col gap-2 items-center">
           <button
             className="p-2 border w-full border-slate-300 rounded-lg focus:outline-none hover:bg-slate-300 transition-colors focus:border-slate-600"
-            onClick={onSignupClick}
+            onClick={handleSignupClick}
           >
             {handlingStatus}
           </button>

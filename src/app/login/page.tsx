@@ -31,7 +31,7 @@ export default function LoginPage({}: Props) {
     }
   }, [user]);
 
-  const onLoginClick = async (e: FormEvent) => {
+  const handleLoginClick = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
@@ -80,7 +80,7 @@ export default function LoginPage({}: Props) {
         <div className="flex flex-col gap-2 items-center">
           <button
             className="p-2 border w-full border-slate-300 rounded-lg focus:outline-none hover:bg-slate-300 transition-colors focus:border-slate-600"
-            onClick={onLoginClick}
+            onClick={handleLoginClick}
           >
             {handlingStatus}
           </button>
