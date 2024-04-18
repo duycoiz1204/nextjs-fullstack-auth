@@ -4,6 +4,7 @@ import { HttpStatusCode } from 'axios';
 
 import { connect } from '@/config/dbConfig';
 import User from '@/models/userModel';
+import { sendEmail } from '@/helpers/mailer';
 
 connect();
 
@@ -26,6 +27,8 @@ export async function POST(request: NextRequest) {
 
     const newUser = new User({ username, email, password: hashedPassword });
     const savedUser = await newUser.save();
+
+    await sendEmail({ email, emailType: 'VERIFY', userId: savedUser._id });
 
     return NextResponse.json(
       { message: 'User created successfully', data: savedUser },
